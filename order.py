@@ -1,3 +1,4 @@
+
 class menu:
     def __init__(self):
         self.d={}
@@ -12,14 +13,11 @@ class order():
         self.d1={}
         self.d=me.d
     def placeo(self,st1,qt):
-        f=0
-        for i in self.d:
-            if(st1==i):
-                self.d1[st1]=qt
-                f=1
-                break
-        if(f!=1):
-            print("Item not present")
+        try:
+            self.d[st1]
+            self.d1[st1]=qt
+        except KeyError: 
+            print(st1,"is not in the menu")
     def disporder(self):
         tot=0
         print("Order\tQuantity\tPrice")
@@ -39,7 +37,7 @@ for i in range(1000):
 c.show()
 o=order(c)
 for i in range(100):
-    s=str(input("Enter order:"))
+    s=str(input("Enter order from the menu:"))
     q=int(input("Enter quantity:"))
     o.placeo(s,q)
     c1=str(input("Do you wish to order more(y/n):"))
