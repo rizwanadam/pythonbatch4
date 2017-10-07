@@ -1,4 +1,5 @@
-
+class Error(Exception):
+    pass
 class menu:
     def __init__(self):
         self.d={}
@@ -16,8 +17,8 @@ class order():
         try:
             self.d[st1]
             self.d1[st1]=qt
-        except KeyError: 
-            print(st1,"is not in the menu")
+        except:
+            raise(Error(st1,'is not in the menu'))
     def disporder(self):
         tot=0
         print("Order\tQuantity\tPrice")
