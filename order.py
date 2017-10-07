@@ -14,11 +14,10 @@ class order():
         self.d1={}
         self.d=me.d
     def placeo(self,st1,qt):
-        try:
-            self.d[st1]
+        if(st1 in self.d):
             self.d1[st1]=qt
-        except:
-            raise(Error(st1,'is not in the menu'))
+        else:
+            raise (Error(st1," not in menu"))
     def disporder(self):
         tot=0
         print("Order\tQuantity\tPrice")
